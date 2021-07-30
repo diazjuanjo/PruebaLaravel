@@ -14,12 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
 
-Route::resource('products', 'PsProductController', ['only' => ['index', 'show']]);
+Route::get('categories', 'CategoryController@index');
 
-Route::resource('categories', 'PsCategoryController', ['only' => ['index', 'show']]);
+Route::get('categories/nested', 'CategoryProductController@index');
 
-Route::resource('categories/nested', 'PsCategoryProductController', ['only' => ['index', 'show']]);
+Route::get('products', 'ProductController@index');
